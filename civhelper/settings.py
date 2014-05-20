@@ -36,6 +36,7 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'civ',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -90,6 +91,8 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'static'),
 )
+
+SESSION_ENGINE = "django.contrib.sessions.backends.cache"
 
 try:
     from settings_local import *
