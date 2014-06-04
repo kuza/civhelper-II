@@ -8,8 +8,8 @@
     <div class="page-header">
         <h1>CivHelper</h1>
     </div>
-    <p class="lead">Pin a fixed-height footer to the bottom of the viewport in desktop browsers with this custom HTML and CSS.</p>
-    <p>Use <a href="../sticky-footer-navbar">the sticky footer with a fixed navbar</a> if need be, too.</p>
+    <p class="lead">The standard rules.<br />Calculate how much gold will get a player on Production Phase.<br />Calculate Victory Points.</p>
+    <p>Please see <a href="http://www.boardgamegeek.com/boardgame/3633/sid-meiers-civilization-the-boardgame">Sid Meier's Civilization: The Boardgame</a> for more info.</p>
     {% if result %}
     <div class="row">
         <div class="col-sm-12">
@@ -23,6 +23,10 @@
                     <p>{% trans "Number of monopolyes with 4 cards" %}: <b>{{ result.monopoly_2}}</b></p>
                     <p>{% trans "Number of monopolyes with 5 cards" %}: <b>{{ result.monopoly_3}}</b></p>
                     <p class="lead">{% trans "Total number of gold" %}: <b>{{ result.total}}</b></p>
+                    <p>{% trans "Settlement size" %}: <b>{{ result.settlement_size}}</b></p>
+                    <p>{% trans "Technologies" %}: <b>{{ result.technologies}}</b></p>
+                    <p>{% trans "Wonders of the world" %}: <b>{{ result.wonders_of_world}}</b></p>
+                    <p class="lead">{% trans "Victory Points" %}: <b>{{ result.victory_points}}</b></p>
                 </div>
             </div>
         </div>
@@ -76,7 +80,7 @@
                     </div>
                 </div>
                 <div class="panel panel-default">
-                    <div class="panel-heading">{% trans "Number of resources and technology" %}</div>
+                    <div class="panel-heading">{% trans "Number of resources, technologies and wonders of the world" %}</div>
                     <div class="panel-body">
                         {% for field in field_list|slice:"10:" %}
                             {% include "civ/form_field.html" with field=field %}
@@ -93,5 +97,27 @@
     </div>
     {% endif %}
 </div>
+<script>
+$(function() {
+    $("form div.form-group:has(input)").append('<div class="btn-group"><div class="button btn btn-primary">+</div></div><div class="btn-group"><div class="button btn btn-danger">-</div></div>');
+
+    $(".button").on("click", function() {
+        var $button = $(this);
+        var oldValue = $button.parents('div.form-group').find("input").val();
+
+        if ($button.text() == "+") {
+            var newVal = parseFloat(oldValue) + 1;
+        } else {
+            if (oldValue > 0) {
+                var newVal = parseFloat(oldValue) - 1;
+            } else {
+                newVal = 0;
+            }
+        }
+        $button.parents('div.form-group').find("input").val(newVal);
+    });
+});
+</script>
+
 {% endblock %}
 

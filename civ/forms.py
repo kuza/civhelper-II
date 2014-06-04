@@ -9,32 +9,34 @@ class RoundForms(forms.Form):
         (3, _('Modern')),
     )
     
-    era = forms.ChoiceField(choices=ERAS, label=_('Era'), initial=0, help_text='')
+    era = forms.ChoiceField(choices=ERAS, label=_('Era'), initial=0, help_text='', widget=forms.Select(attrs={'placeholder': _('Era'), 'class': 'form-control', 'required' : True}))
     die_roll_result = forms.IntegerField(min_value=2, max_value=12, label=_('Die Roll Result'), initial=2, help_text='', widget=forms.NumberInput(attrs={'placeholder': _('Die Roll Result'), 'class': 'form-control', 'required' : True}))
     
-    village = forms.IntegerField(min_value=0, label=_('Simple'), initial=0, help_text='')
-    fertile_village = forms.IntegerField(min_value=0, label=_('Fertile'), initial=0, help_text='')
+    village = forms.IntegerField(min_value=0, label=_('Simple'), initial=0, help_text='', widget=forms.NumberInput(attrs={'placeholder': _('Simple'), 'class': 'form-control', 'required' : True}))
+    fertile_village = forms.IntegerField(min_value=0, label=_('Fertile'), initial=0, help_text='', widget=forms.NumberInput(attrs={'placeholder': _('Fertile'), 'class': 'form-control', 'required' : True}))
 
-    town = forms.IntegerField(min_value=0, label=_('Simple'), initial=0, help_text='')
-    fertile_town = forms.IntegerField(min_value=0, label=_('Fertile'), initial=0, help_text='')
+    town = forms.IntegerField(min_value=0, label=_('Simple'), initial=0, help_text='', widget=forms.NumberInput(attrs={'placeholder': _('Simple'), 'class': 'form-control', 'required' : True}))
+    fertile_town = forms.IntegerField(min_value=0, label=_('Fertile'), initial=0, help_text='', widget=forms.NumberInput(attrs={'placeholder': _('Fertile'), 'class': 'form-control', 'required' : True}))
 
-    city = forms.IntegerField(min_value=0, label=_('Simple'), initial=0, help_text='')
-    fertile_city = forms.IntegerField(min_value=0, label=_('Fertile'), initial=0, help_text='')
+    city = forms.IntegerField(min_value=0, label=_('Simple'), initial=0, help_text='', widget=forms.NumberInput(attrs={'placeholder': _('Simple'), 'class': 'form-control', 'required' : True}))
+    fertile_city = forms.IntegerField(min_value=0, label=_('Fertile'), initial=0, help_text='', widget=forms.NumberInput(attrs={'placeholder': _('Fertile'), 'class': 'form-control', 'required' : True}))
 
-    metropolis = forms.IntegerField(min_value=0, label=_('Simple'), initial=0, help_text='')
-    fertile_metropolis = forms.IntegerField(min_value=0, label=_('Fertile'), initial=0, help_text='')
+    metropolis = forms.IntegerField(min_value=0, label=_('Simple'), initial=0, help_text='', widget=forms.NumberInput(attrs={'placeholder': _('Simple'), 'class': 'form-control', 'required' : True}))
+    fertile_metropolis = forms.IntegerField(min_value=0, label=_('Fertile'), initial=0, help_text='', widget=forms.NumberInput(attrs={'placeholder': _('Fertile'), 'class': 'form-control', 'required' : True}))
     
-    wine = forms.IntegerField(min_value=0, label=_('Wine'), initial=0, help_text='')
-    horses = forms.IntegerField(min_value=0, label=_('Horses'), initial=0, help_text='')
-    iron = forms.IntegerField(min_value=0, label=_('Iron'), initial=0, help_text='')
-    gems = forms.IntegerField(min_value=0, label=_('Gems'), initial=0, help_text='')
-    spices = forms.IntegerField(min_value=0, label=_('Spices'), initial=0, help_text='')
-    oil = forms.IntegerField(min_value=0, label=_('Oil'), initial=0, help_text='')
-    coal = forms.IntegerField(min_value=0, label=_('Coal'), initial=0, help_text='')
-    rare_metals = forms.IntegerField(min_value=0, label=_('Rare metals'), initial=0, help_text='')
+    wine = forms.IntegerField(min_value=0, label=_('Wine'), initial=0, help_text='', widget=forms.NumberInput(attrs={'placeholder': _('Wine'), 'class': 'form-control', 'required' : True}))
+    horses = forms.IntegerField(min_value=0, label=_('Horses'), initial=0, help_text='', widget=forms.NumberInput(attrs={'placeholder': _('Horses'), 'class': 'form-control', 'required' : True}))
+    iron = forms.IntegerField(min_value=0, label=_('Iron'), initial=0, help_text='', widget=forms.NumberInput(attrs={'placeholder': _('Iron'), 'class': 'form-control', 'required' : True}))
+    gems = forms.IntegerField(min_value=0, label=_('Gems'), initial=0, help_text='', widget=forms.NumberInput(attrs={'placeholder': _('Gems'), 'class': 'form-control', 'required' : True}))
+    spices = forms.IntegerField(min_value=0, label=_('Spices'), initial=0, help_text='', widget=forms.NumberInput(attrs={'placeholder': _('Spices'), 'class': 'form-control', 'required' : True}))
+    oil = forms.IntegerField(min_value=0, label=_('Oil'), initial=0, help_text='', widget=forms.NumberInput(attrs={'placeholder': _('Oil'), 'class': 'form-control', 'required' : True}))
+    coal = forms.IntegerField(min_value=0, label=_('Coal'), initial=0, help_text='', widget=forms.NumberInput(attrs={'placeholder': _('Coal'), 'class': 'form-control', 'required' : True}))
+    rare_metals = forms.IntegerField(min_value=0, label=_('Rare metals'), initial=0, help_text='', widget=forms.NumberInput(attrs={'placeholder': _('Rare metals'), 'class': 'form-control', 'required' : True}))
     
-    technology = forms.IntegerField(min_value=0, label=_('Technology'), initial=0, help_text='')
+    technology = forms.IntegerField(min_value=0, label=_('Technology'), initial=0, help_text='', widget=forms.NumberInput(attrs={'placeholder': _('Technology'), 'class': 'form-control', 'required' : True}))
     
+    wonders_of_world = forms.IntegerField(min_value=0, label=_('Wonders of the world'), initial=0, help_text='', widget=forms.NumberInput(attrs={'placeholder': _('Wonders of the world'), 'class': 'form-control', 'required' : True}))
+
     def clean_era(self):
         return int(self.cleaned_data.get('era', 0))
     
@@ -123,4 +125,19 @@ class RoundForms(forms.Form):
         
         result.update(total=max(total, 10))
         
+        result.update(settlement_size=(self.cleaned_data.get('village', 0)
+            + self.cleaned_data.get('fertile_village', 0)
+            + self.cleaned_data.get('town', 0)*2
+            + self.cleaned_data.get('fertile_town', 0)*2
+            + self.cleaned_data.get('city', 0)*3
+            + self.cleaned_data.get('fertile_city', 0)*3
+            + self.cleaned_data.get('metropolis', 0)*4
+            + self.cleaned_data.get('fertile_metropolis', 0)*4
+        ))
+        
+        result.update(technologies=self.cleaned_data.get('technology', 0)*2)
+        result.update(wonders_of_world=self.cleaned_data.get('wonders_of_world', 0)*3)
+        
+        result.update(victory_points=result['settlement_size'] + result['technologies'] + result['wonders_of_world'])
+
         return result

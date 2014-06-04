@@ -1,6 +1,6 @@
 <div class="form-group {% if field.errors %} has-error {% endif %}">
-    <label class="col-sm-4 control-label" for="{{ field.id_for_label }}">{{ field.label }}</label>
-    <div class="col-sm-8">
+    <label class="col-xs-12 col-sm-4 control-label" for="{{ field.id_for_label }}">{{ field.label }}</label>
+    <div class="col-xs-8 col-sm-6">
       {{ field }}
       <span class="alert-danger">{{ field.errors }}</span>
     </div>
