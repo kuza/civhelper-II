@@ -75,7 +75,6 @@ class RoundForms(forms.Form):
         
         die_roll_result = self.cleaned_data.get('die_roll_result', 0)
         era = self.cleaned_data.get('era', 0)
-        print(die_roll_result, era)
         if die_roll_result > 0:
             result.update(critical_resource=(self.cleaned_data.get(table_critical_resource[era][die_roll_result], 0) > 0))
             

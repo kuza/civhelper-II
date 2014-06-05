@@ -30,9 +30,6 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = (
-    'django.contrib.admin',
-    'django.contrib.auth',
-    'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
@@ -51,7 +48,6 @@ MIDDLEWARE_CLASSES = (
 ROOT_URLCONF = 'civhelper.urls'
 
 WSGI_APPLICATION = 'civhelper.wsgi.application'
-
 
 # Database
 # https://docs.djangoproject.com/en/1.6/ref/settings/#databases
@@ -91,8 +87,6 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'static'),
 )
-
-SESSION_ENGINE = "django.contrib.sessions.backends.cache"
 
 try:
     from settings_local import *
